@@ -33,11 +33,25 @@ public class Enemy : MonoBehaviour
             }
             else if (other.tag == "Player" || other.tag == "Enemy")
             {
-                player.TakeDamage();
-                speed = 0;
-                transform.parent = player.transform;
+                if (other.tag == "Enemy" && other.transform.parent != player.transform)
+                {
+                    float distance_other = Vector2.Distance(other.transform.position, player.transform.position);
+                    float distance = Vector2.Distance(transform.position, player.transform.position);
+
+                    if (distance > distance_other)
+                    {
+                        Destroy(gameObject);
+
+                    }
+                }
+                else
+                {
+                    player.TakeDamage();
+                    speed = 0;
+                    transform.parent = player.transform;
+                    active = false;
+                }
             }
         }
-        active = false;
     }
 }
