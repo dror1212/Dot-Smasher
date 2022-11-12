@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turnSpeed = -150;
+        health = 3;
+        score = 0;
         scoreDisplay.text = "Score: " + score;
         healthDisplay.text = "Health: " + health;
     }

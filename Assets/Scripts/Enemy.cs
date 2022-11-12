@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         active = true;
+        speed = 2;
     }
 
     // Update is called once per frame
@@ -41,7 +42,6 @@ public class Enemy : MonoBehaviour
                     if (distance > distance_other)
                     {
                         Destroy(gameObject);
-
                     }
                 }
                 else
